@@ -36,7 +36,7 @@ Este documento reúne o estado atual e o feedback mais recente do jogador. A ord
 - Verificado no Chromium isolado: pacto real da War Lotus, prioridade visual, canalizar/disparar Kirin consumindo carga uma única vez, embainhar restaurando Godspeed, navegação, efeitos desligados, movimento reduzido, largura de 390 px e recarga. Sem erros de execução e sem recursos externos.
 - Medição do ambiente War Lotus no teste headless: aproximadamente 60 fps e 0,10–0,12 ms de atualização por quadro, sem incluir renderização. Não é garantia de desempenho em outro dispositivo.
 - Inicializador Python multiplataforma, wrappers shell e Windows; README da raiz explica instalação e transferência da partida por exportar/importar JSON. Código no GitHub não sincroniza o IndexedDB.
-- `.gitignore` exclui credenciais, dependências, caches e backups. Git inicializado na raiz. Publicação depende de autenticação no GitHub CLI.
+- `.gitignore` exclui credenciais, dependências, caches e backups. Git inicializado na raiz. Autenticação confirmada. Repositório público criado por solicitação do jogador: https://github.com/ViolanteGabriel/rpg-interactive-character-sheet. O README da raiz apresenta o projeto e documenta instalação, uso e transferência por backup.
 
 ## 1. Objetivo do projeto
 
