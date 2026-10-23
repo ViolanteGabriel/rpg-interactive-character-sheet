@@ -1,0 +1,26 @@
+# Configuração local, credenciais e ferramentas
+.agents/
+.codex/
+.aws/
+.env
+.env.*
+!.env.example
+
+# Dependências e caches
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+*.log
+
+# Backups da partida pertencem ao jogador, não ao código
+backups/
+*backup*.json
+supros-*.json
+
+# Artefatos locais de revisão
+screenshots/
+playwright-report/
+test-results/

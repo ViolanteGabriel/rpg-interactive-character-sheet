@@ -1,0 +1,191 @@
+NAME,HIT DICE,LVL,MAX HP,HP,AC,BONUS HP,,,,,
+Kozuki Supros,10,9,94,49,19,9,,,,,
+,9/9,,Current max hp: 94,,,,,,,,
+STATS:,BASE STAT (point buy),Bonus +2 +1,Ability Score Improvment + Feat,Total STATS,Proficiency Bonus,Modifiers,Saving Throws Bonus,,,,
+STRENGTH,8,0,0,8,0,-1,-1,,,,
+DEXTERITY,15,2,5,22,3,6,9,,,,
+CONSTITUTION,15,1,0,16,3,3,6,,,,
+INTELLIGENCE,14,0,0,14,0,2,2,,,,
+WISDOW,8,0,0,8,0,-1,-1,,,,
+CHARISMA,10,0,0,10,0,0,0,,,,
+,,,,,,,,,,,
+ARMOR CLASS,Armor bonus,DEX Bonus,Shield Bonus,Other Bonus,Ataque (base),,,,,,
+19,13,6,0,0,10,,,WAR Loutus,,,
+,,,,,,,,Meta de dano,,,
+Profissão:,BlackSmith,,,,,,,Dano atual causado,,,
+Lvl,3,,,,,,,Vida máxima perdida PRA SEMPRE,0,,
+Skill Checks,Control&Athletics,,,,,,,Vida máxima perdida temporária,,,
+Bonus,3,,,,,,,,,,
+Descrição:," - +4 para testes.
+ - +4 para fazer armas e armaduras.
+ - Consegue utilizar forjas e fornos especiais para reduzir a dificuldade dos crafts. (+1)
+ - Consegue fazer armaduras incomuns, raras e épicas.
+ - Roda com vantagem para fazer armaduras comuns com materiais básicos. (metais ou pedras mineradas).
+ ",,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+Total Bonus,Skill Checks,Stats Bonus,Proficiency Bonus,Profession Bonus,,,,,,,
+3,Athletics,-1,0,4,,,,,,,
+10,Acrobatics,6,4,0,,,,,,,
+6,Sleight of Hands,6,0,0,,,,,,,
+10,Stealth,6,4,0,,,,,,,
+2,Arcana,2,0,0,,,,,,,
+2,History,2,0,0,,,,,,,
+10,Control,2,4,4,,,,,,,
+2,Investigation,2,0,0,,,,,,,
+2,Nature,2,0,0,,,,,,,
+2,Religion,2,0,0,,,,,,,
+2,Society,2,0,0,,,,,,,
+-1,Animal Handling,-1,0,0,,,,,,,
+-1,Perception,-1,0,0,,,,,,,
+-1,Insight,-1,0,0,,,,,,,
+-1,Survival,-1,0,0,,,,,,,
+-1,Medicine,-1,0,0,,,,,,,
+4,Deception,0,4,0,,,,,,,
+4,Intimidation,0,4,0,,,,,,,
+4,Performance,0,4,0,,,,,,,
+4,Persuasion,0,4,0,,,,,,,
+,,,,,,,,,,,
+SKILLS,,,,,,,,,,,
+PASSIVES,,,,,,,,,,,
+Skill name,,,,Effect,,,,,,,
+Lightning Veins,,,,Supros ganha +1 em Destreza passivamente e aumenta o cap pra 22.,,,,,,,
+Black Flash,,,,"Trigger: Crítico corpo a corpo
+Efeito: Crit em 19–20 até o fim do combate
+    Alvo faz ST CON (17)
+    Falha: Stunned até o fim do próximo turno
+",,,,,,,
+ACTIONS,,,,,,,,,,,
+Skill Name,Effect,,,Uses,Recharge,Current Uses,,,,, 
+Multi Attack,"Ao tomar a ação de atacar, supros pode realizar dois rolamentos de ataque.",,,∞,∞,∞,,,,,
+Lightning Reaver,"Efeito: Realiza até 3 ataques consecutivos
+Dano: Cada ataque causa Hit Básico + 1d8
+Alvo : O primeiro ataque escolhe um alvo
+    Os ataques seguintes podem atingir outros inimigos 
+    a até 25 ft do alvo anterior
+    Não pode repetir o mesmo alvo
+Teste: Cada alvo faz um ST de DEX (15)
+Falha: recebe dano completo",,,3,Long Rest,3,,,,,
+Lightning Spear,"Alcance: 90 ft (linha reta)
+Alvo: 1 criatura na linha
+Dano: Causa 8d8 + DEX de dano elétrico
+Teste: ST de DEX (DC 15):
+Falha: sofre dano total e fica Paralyzed até o fim do próximo turno
+Sucesso: sofre metade do dano e não é afetado adicionalmente",,,2,Long Rest,2,,,,,
+"Lightning Beast
+Kirin","Condição: Céu aberto
+Canalização:
+     Bônus Action: canaliza
+     Action: dispara
+Alvo: 1 criatura previamente ferida
+Dano: Causa 8d10 + DEX de dano elétrico
+Teste: ST de DEX (DC 15):
+Falha: dano total + Paralyzed
+Sucesso: metade do dano
+Clina Nublado:
+    Dano: 10d10 + DEX
+    Afeta área de 10 ft ao redor do alvo""                ",,,1,Long Rest,1,,,,,
+Energy Transmutation,"Tipo: Free Action
+Usos: PB por Long Rest
+Efeito:
+    Ao causar dano, pode converter o tipo para:
+    Lightning, Thunder, Fire, Cold ou Radiant
+Thunder: empurra 5 ft
+Cold: -10 ft de movimento (1 turno)
+Fire&Radiant: +1d6 dano (1 turno)",,,4,Short Rest,4,"PROPOSTA 
+SKILL LEVEL 
+9",,,,
+BONUS ACTION   ,,,,,,,,,,,
+Skill Name,Effect,,,Uses,Recharge,Current Uses,,,,,
+Shunpo,Blink (PB * 20),,,3,Short Rest,3,,,,,
+Godspeed Supros,"Tipo: Ativação (1x por combate)
+Duração: 3 turnos
+Efeitos:
+    +1 DEX
+    Ganha Evasion
+    +15 ft de movimento
+Sobrecarga:
+    Pode estender a duração além de 3 turnos
+    Para cada turno extra, recebe 1 nível de exaustão 
+    quando desativar a habilidade",,,2,Long Rest,1,,,,,
+Clone,"Limite: Apenas 1 clone ativo
+Duração: Até o fim do combate
+Efeito:
+    Quando Supros é alvo de um ataque, o atacante 
+    rola 1d4
+    Par: ataque é redirecionado para o clone
+    Impar: ataque atinge Supros normalmente
+Explosão do Clone:
+    Quando um inimigo corpo a corpo atinge o clone:
+    O clone é destruído
+    O atacante sofre 2d8 dano elétrico
+    Deve fazer ST de CON (DC 15)
+        Falha: fica Paralyzed até o fim do próximo turno
+        Sucesso: sem efeito adicional
+Ataque e Movimentação
+    Como uma Bônus Action, Supros pode atacar com 
+    o clone no campo de batalha. O clone tem a mesma 
+    movimentação do personagem e o dano causado é
+    2d8 dano eletrico.
+    1 Attack Roll Normal
+    O clone não morre se acertar o ataque.
+    O clone não pode interagir com objetos (ainda).
+
+    ",,,3,Long Rest,2,"PROPOSTA 
+UPGRADE LEVEL 
+9",,,,
+REACTION,,,,,,,,,,,
+Skill Name,Effect,,,Uses,Recharge,Current Uses,,,,,
+Flash Bang,"Trigger: Ao ser alvo de um ataque por um inimigo que você pode ver
+Efeito: O atacante deve fazer ST de CON (DC 15)
+Falha: fica Cego até o fim do próximo turno
+    Ataques dele têm desvantagem
+    Sucesso: sem efeito",,,3,Long Rest,2,,,,,
+Parry,"Trigger: Ao ser alvo de um ataque por um inimigo que você pode ver
+Efeito: +3 AC nesse ataque",,,3,Short Rest,1,,,,,
+,,,,,,,,,,,
+Equipments,,,,,,,,,,,
+Item,,QTD,Effect,,,Value,,,,,
+Speed Boots,,1,Additional 15ft of movement,,,,,,,,
+Katana Peace Lotus,,1,1d12 + DEX. Special effects agains War Lotus.,,,,,,,,
+Katana Hyorimaru,,1,"2d6 + 2d4 + DEX. Use a bonus action to freeze 15ft within you, making it hard terrain.",,,,,,,,
+Katana War Lotus,,1,1d12 + 1d12(fixo) + DEX,,,,,,,,
+Dragon's Scale Armor,,1,"AC: 13 + DEX, +5hp",,,,,,,,
+The Hawk's Eye,,1,18 passive perception,,,,,,,,
+Warm Clothing,,1,Good in cold places,,,,,,,,
+Grappling,,14,20ft/6 metros range,,,,,,,,
+Rope,,1,75m,,,,,,,,
+Parachute,,1,2 uses left,,,,,,,,
+Anti-sound Smoke,,0,An area the size of a room,,,,,,,,
+Smoke Bomb,,0,1 round / 10x10ft,,,,,,,,
+White Camouflage,,1, +1 stealth in snow biome,,,,,,,,
+Desert Camouflage,,1, +1 stealth in desert biome,,,,,,,,
+Gold,,5,,,,,,,,,
+Minor Healing Potion,,0,2d4 + 2,,,50g,,,,,
+Healing Potion,,0,4d4+4,,,100g,,,,,
+Bigger Healing Potion,,0,4d6+6,,,150g,,,,,
+Greater Healing Potion,,0,6d6+10,,,200g,,,,,
+Superior Healing Potion,,0,10d6 + 15,,,300g,,,,,
+Anti Exhaust Potion,,1,-1 Exhaust,,,100,,,,,
+Gold,,2500,,,,,,,,,
+Anel Beholder,,1,Mais 3 em todo teste de charisma,,,,,,,,
+Estus Flask,,1/3,10d6 + 15 recarregável por long,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,1,,,,,,,,
+,,,,,,,,,,,
+"War lotus
+1d12
++2 para acerto.
+A espada pode ser sacada a qualquer momento e não bloqueia as habilidades do usuário.
+Ao sacar a espada o usuário pode escolher rolar 1; 2 ou 3 D100. Para cada d100 o usuário perde 4 de vida máxima e soma 4 de dano flat a espada. Ao fim do combate, o usuário precisa de causar em dano o equivalente a soma de todos os resultados dos D100. Se não conseguir ele perde metade do HP que sacrificou para sacar a espada permanentemente.
+
+O usuário se cura em 50% do dano que ele causa com a espada.
+
+Qualquer outra fonte de cura tem 50% do efeito original no usuário.
+
+O usuário pode sacrificar até 20 de seus pontos de vida máximos para aumentar o dano de um de seus ataques.
+
+O usuário é imune a Fear.",,,,,,,,,,,

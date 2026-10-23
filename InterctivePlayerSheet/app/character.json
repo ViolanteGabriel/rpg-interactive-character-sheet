@@ -1,0 +1,435 @@
+{
+  "name": "Kozuki D Supros",
+  "level": 9,
+  "hp": 49,
+  "maxHp": 94,
+  "ac": 19,
+  "attack": 10,
+  "hitDice": "9/9",
+  "profession": "Ferreiro · nível 3",
+  "skills": [
+    {
+      "id": "skill-49",
+      "name": "Lightning Veins",
+      "description": "Supros ganha +1 em Destreza passivamente e aumenta o cap pra 22.",
+      "group": "Passiva",
+      "max": null,
+      "current": null,
+      "rest": null,
+      "source": "Planilha1!A49",
+      "approved": true
+    },
+    {
+      "id": "skill-50",
+      "name": "Black Flash",
+      "description": "Trigger: Crítico corpo a corpo\nEfeito: Crit em 19–20 até o fim do combate\n    Alvo faz ST CON (17)\n    Falha: Stunned até o fim do próximo turno\n",
+      "group": "Passiva",
+      "max": null,
+      "current": null,
+      "rest": null,
+      "source": "Planilha1!A50",
+      "approved": true
+    },
+    {
+      "id": "skill-53",
+      "name": "Multi Attack",
+      "description": "Ao tomar a ação de atacar, supros pode realizar dois rolamentos de ataque.",
+      "group": "Ação",
+      "max": null,
+      "current": null,
+      "rest": null,
+      "source": "Planilha1!A53",
+      "approved": true
+    },
+    {
+      "id": "skill-54",
+      "name": "Lightning Reaver",
+      "description": "Efeito: Realiza até 3 ataques consecutivos\nDano: Cada ataque causa Hit Básico + 1d8\nAlvo : O primeiro ataque escolhe um alvo\n    Os ataques seguintes podem atingir outros inimigos \n    a até 25 ft do alvo anterior\n    Não pode repetir o mesmo alvo\nTeste: Cada alvo faz um ST de DEX (15)\nFalha: recebe dano completo",
+      "group": "Ação",
+      "max": 3,
+      "current": 3,
+      "rest": "long",
+      "source": "Planilha1!A54",
+      "approved": true
+    },
+    {
+      "id": "skill-55",
+      "name": "Lightning Spear",
+      "description": "Alcance: 90 ft (linha reta)\nAlvo: 1 criatura na linha\nDano: Causa 8d8 + DEX de dano elétrico\nTeste: ST de DEX (DC 15):\nFalha: sofre dano total e fica Paralyzed até o fim do próximo turno\nSucesso: sofre metade do dano e não é afetado adicionalmente",
+      "group": "Ação",
+      "max": 2,
+      "current": 2,
+      "rest": "long",
+      "source": "Planilha1!A55",
+      "approved": true
+    },
+    {
+      "id": "skill-56",
+      "name": "Lightning Beast Kirin",
+      "description": "Condição: Céu aberto\nCanalização:\n     Bônus Action: canaliza\n     Action: dispara\nAlvo: 1 criatura previamente ferida\nDano: Causa 8d10 + DEX de dano elétrico\nTeste: ST de DEX (DC 15):\nFalha: dano total + Paralyzed\nSucesso: metade do dano\nClina Nublado:\n    Dano: 10d10 + DEX\n    Afeta área de 10 ft ao redor do alvo\"                ",
+      "group": "Ação",
+      "max": 1,
+      "current": 1,
+      "rest": "long",
+      "source": "Planilha1!A56",
+      "approved": true
+    },
+    {
+      "id": "skill-57",
+      "name": "Energy Transmutation",
+      "description": "Tipo: Free Action\nUsos: PB por Long Rest\nEfeito:\n    Ao causar dano, pode converter o tipo para:\n    Lightning, Thunder, Fire, Cold ou Radiant\nThunder: empurra 5 ft\nCold: -10 ft de movimento (1 turno)\nFire&Radiant: +1d6 dano (1 turno)",
+      "group": "Ação",
+      "max": 4,
+      "current": 4,
+      "rest": "short",
+      "source": "Planilha1!A57",
+      "approved": true
+    },
+    {
+      "id": "skill-60",
+      "name": "Shunpo",
+      "description": "Blink (PB * 20)",
+      "group": "Ação bônus",
+      "max": 3,
+      "current": 3,
+      "rest": "short",
+      "source": "Planilha1!A60",
+      "approved": true
+    },
+    {
+      "id": "skill-61",
+      "name": "Godspeed Supros",
+      "description": "Tipo: Ativação (1x por combate)\nDuração: 3 turnos\nEfeitos:\n    +2 DEX\n    Ganha Evasion\n    +15 ft de movimento\nSobrecarga:\n    Pode estender a duração além de 3 turnos\n    Para cada turno extra, recebe 1 nível de exaustão \n    quando desativar a habilidade",
+      "group": "Ação bônus",
+      "max": 2,
+      "current": 1,
+      "rest": "long",
+      "source": "Planilha1!A61",
+      "approved": true
+    },
+    {
+      "id": "skill-62",
+      "name": "Clone",
+      "description": "Limite: Apenas 1 clone ativo\nDuração: Até o fim do combate\nEfeito:\n    Quando Supros é alvo de um ataque, o atacante \n    rola 1d4\n    Par: ataque é redirecionado para o clone\n    Impar: ataque atinge Supros normalmente\nExplosão do Clone:\n    Quando um inimigo corpo a corpo atinge o clone:\n    O clone é destruído\n    O atacante sofre 2d8 dano elétrico\n    Deve fazer ST de CON (DC 15)\n        Falha: fica Paralyzed até o fim do próximo turno\n        Sucesso: sem efeito adicional\nAtaque e Movimentação\n    Como uma Bônus Action, Supros pode atacar com \n    o clone no campo de batalha. O clone tem a mesma \n    movimentação do personagem e o dano causado é\n    2d8 dano eletrico.\n    1 Attack Roll Normal\n    O clone não morre se acertar o ataque.\n    O clone não pode interagir com objetos (ainda).\n\n    ",
+      "group": "Ação bônus",
+      "max": 3,
+      "current": 2,
+      "rest": "long",
+      "source": "Planilha1!A62",
+      "approved": true
+    },
+    {
+      "id": "skill-65",
+      "name": "Flash Bang",
+      "description": "Trigger: Ao ser alvo de um ataque por um inimigo que você pode ver\nEfeito: O atacante deve fazer ST de CON (DC 15)\nFalha: fica Cego até o fim do próximo turno\n    Ataques dele têm desvantagem\n    Sucesso: sem efeito",
+      "group": "Reação",
+      "max": 3,
+      "current": 2,
+      "rest": "long",
+      "source": "Planilha1!A65",
+      "approved": true
+    },
+    {
+      "id": "skill-66",
+      "name": "Parry",
+      "description": "Trigger: Ao ser alvo de um ataque por um inimigo que você pode ver\nEfeito: +3 AC nesse ataque",
+      "group": "Reação",
+      "max": 3,
+      "current": 1,
+      "rest": "short",
+      "source": "Planilha1!A66",
+      "approved": true
+    }
+  ],
+  "items": [
+    {
+      "id": "item-70",
+      "name": "Speed Boots",
+      "quantity": "1",
+      "description": "Additional 15ft of movement",
+      "source": "Planilha1!A70"
+    },
+    {
+      "id": "item-71",
+      "name": "Katana Peace Lotus",
+      "quantity": "1",
+      "description": "1d12 + DEX. Special effects agains War Lotus.",
+      "source": "Planilha1!A71"
+    },
+    {
+      "id": "item-72",
+      "name": "Katana Hyorimaru",
+      "quantity": "1",
+      "description": "2d6 + 2d4 + DEX. Use a bonus action to freeze 15ft within you, making it hard terrain.",
+      "source": "Planilha1!A72"
+    },
+    {
+      "id": "item-73",
+      "name": "Katana War Lotus",
+      "quantity": "1",
+      "description": "1d12 + 1d12(fixo) + DEX",
+      "source": "Planilha1!A73"
+    },
+    {
+      "id": "item-74",
+      "name": "Dragon's Scale Armor",
+      "quantity": "1",
+      "description": "AC: 13 + DEX, +5hp",
+      "source": "Planilha1!A74"
+    },
+    {
+      "id": "item-75",
+      "name": "The Hawk's Eye",
+      "quantity": "1",
+      "description": "18 passive perception",
+      "source": "Planilha1!A75"
+    },
+    {
+      "id": "item-76",
+      "name": "Warm Clothing",
+      "quantity": "1",
+      "description": "Good in cold places",
+      "source": "Planilha1!A76"
+    },
+    {
+      "id": "item-77",
+      "name": "Grappling",
+      "quantity": "14",
+      "description": "20ft/6 metros range",
+      "source": "Planilha1!A77"
+    },
+    {
+      "id": "item-78",
+      "name": "Rope",
+      "quantity": "1",
+      "description": "75m",
+      "source": "Planilha1!A78"
+    },
+    {
+      "id": "item-79",
+      "name": "Parachute",
+      "quantity": "1",
+      "description": "2 uses left",
+      "source": "Planilha1!A79"
+    },
+    {
+      "id": "item-80",
+      "name": "Anti-sound Smoke",
+      "quantity": "0",
+      "description": "An area the size of a room",
+      "source": "Planilha1!A80"
+    },
+    {
+      "id": "item-81",
+      "name": "Smoke Bomb",
+      "quantity": "0",
+      "description": "1 round / 10x10ft",
+      "source": "Planilha1!A81"
+    },
+    {
+      "id": "item-82",
+      "name": "White Camouflage",
+      "quantity": "1",
+      "description": " +1 stealth in snow biome",
+      "source": "Planilha1!A82"
+    },
+    {
+      "id": "item-83",
+      "name": "Desert Camouflage",
+      "quantity": "1",
+      "description": " +1 stealth in desert biome",
+      "source": "Planilha1!A83"
+    },
+    {
+      "id": "item-84",
+      "name": "Gold",
+      "quantity": "5",
+      "description": "",
+      "source": "Planilha1!A84"
+    },
+    {
+      "id": "item-85",
+      "name": "Minor Healing Potion",
+      "quantity": "0",
+      "description": "2d4 + 2",
+      "source": "Planilha1!A85"
+    },
+    {
+      "id": "item-86",
+      "name": "Healing Potion",
+      "quantity": "0",
+      "description": "4d4+4",
+      "source": "Planilha1!A86"
+    },
+    {
+      "id": "item-87",
+      "name": "Bigger Healing Potion",
+      "quantity": "0",
+      "description": "4d6+6",
+      "source": "Planilha1!A87"
+    },
+    {
+      "id": "item-88",
+      "name": "Greater Healing Potion",
+      "quantity": "0",
+      "description": "6d6+10",
+      "source": "Planilha1!A88"
+    },
+    {
+      "id": "item-89",
+      "name": "Superior Healing Potion",
+      "quantity": "0",
+      "description": "10d6 + 15",
+      "source": "Planilha1!A89"
+    },
+    {
+      "id": "item-90",
+      "name": "Anti Exhaust Potion",
+      "quantity": "1",
+      "description": "-1 Exhaust",
+      "source": "Planilha1!A90"
+    },
+    {
+      "id": "item-91",
+      "name": "Gold",
+      "quantity": "2500",
+      "description": "",
+      "source": "Planilha1!A91"
+    },
+    {
+      "id": "item-92",
+      "name": "Anel Beholder",
+      "quantity": "1",
+      "description": "Mais 3 em todo teste de charisma",
+      "source": "Planilha1!A92"
+    },
+    {
+      "id": "item-93",
+      "name": "Estus Flask",
+      "quantity": "1/3",
+      "description": "10d6 + 15 recarregável por long",
+      "source": "Planilha1!A93"
+    }
+  ],
+  "stats": [
+    {
+      "name": "STRENGTH",
+      "value": 8,
+      "modifier": -1,
+      "save": -1
+    },
+    {
+      "name": "DEXTERITY",
+      "value": 22,
+      "modifier": 6,
+      "save": 9
+    },
+    {
+      "name": "CONSTITUTION",
+      "value": 16,
+      "modifier": 3,
+      "save": 6
+    },
+    {
+      "name": "INTELLIGENCE",
+      "value": 14,
+      "modifier": 2,
+      "save": 2
+    },
+    {
+      "name": "WISDOW",
+      "value": 8,
+      "modifier": -1,
+      "save": -1
+    },
+    {
+      "name": "CHARISMA",
+      "value": 10,
+      "modifier": 0,
+      "save": 0
+    }
+  ],
+  "checks": [
+    {
+      "name": "Athletics",
+      "bonus": 3
+    },
+    {
+      "name": "Acrobatics",
+      "bonus": 10
+    },
+    {
+      "name": "Sleight of Hands",
+      "bonus": 6
+    },
+    {
+      "name": "Stealth",
+      "bonus": 10
+    },
+    {
+      "name": "Arcana",
+      "bonus": 2
+    },
+    {
+      "name": "History",
+      "bonus": 2
+    },
+    {
+      "name": "Control",
+      "bonus": 10
+    },
+    {
+      "name": "Investigation",
+      "bonus": 2
+    },
+    {
+      "name": "Nature",
+      "bonus": 2
+    },
+    {
+      "name": "Religion",
+      "bonus": 2
+    },
+    {
+      "name": "Society",
+      "bonus": 2
+    },
+    {
+      "name": "Animal Handling",
+      "bonus": -1
+    },
+    {
+      "name": "Perception",
+      "bonus": -1
+    },
+    {
+      "name": "Insight",
+      "bonus": -1
+    },
+    {
+      "name": "Survival",
+      "bonus": -1
+    },
+    {
+      "name": "Medicine",
+      "bonus": -1
+    },
+    {
+      "name": "Deception",
+      "bonus": 4
+    },
+    {
+      "name": "Intimidation",
+      "bonus": 4
+    },
+    {
+      "name": "Performance",
+      "bonus": 4
+    },
+    {
+      "name": "Persuasion",
+      "bonus": 4
+    }
+  ],
+  "warLotus": "War lotus\n1d12\n+2 para acerto.\nA espada pode ser sacada a qualquer momento e não bloqueia as habilidades do usuário.\nAo sacar a espada o usuário pode escolher rolar 1; 2 ou 3 D100. Para cada d100 o usuário perde 4 de vida máxima e soma 4 de dano flat a espada. Ao fim do combate, o usuário precisa de causar em dano o equivalente a soma de todos os resultados dos D100. Se não conseguir ele perde metade do HP que sacrificou para sacar a espada permanentemente.\n\nO usuário se cura em 50% do dano que ele causa com a espada.\n\nQualquer outra fonte de cura tem 50% do efeito original no usuário.\n\nO usuário pode sacrificar até 20 de seus pontos de vida máximos para aumentar o dano de um de seus ataques.\n\nO usuário é imune a Fear."
+}
