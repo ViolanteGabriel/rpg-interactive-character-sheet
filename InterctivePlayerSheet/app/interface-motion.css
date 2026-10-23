@@ -1,0 +1,25 @@
+/* Ritmo curto de interface, inspirado no feedback de recursos da ficha do Vasco. */
+button,a,input,select,textarea{transition:background-color .16s,border-color .16s,color .16s,box-shadow .16s}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+button:not(:disabled):active{translate:0 1px}
+@media(hover:hover){.combat-skill,.item,.stat{transition:border-color .18s,box-shadow .18s}.combat-skill:hover,.item:hover,.stat:hover{box-shadow:0 5px 18px #0003;border-top-color:var(--group-accent,var(--blue))}}
+.health{position:relative;overflow:hidden}
+#hp,#ac,#attack{display:inline-block;font-variant-numeric:tabular-nums}
+#health-fill{transition:width .42s cubic-bezier(.2,.7,.2,1),background-color .3s}
+.health[data-vitality=wounded] #health-fill{background:#d8b578}
+.health[data-vitality=critical] #health-fill{background:#e27990}
+.health[data-vitality=critical] .metric-label{color:#f29bad}
+.resource-delta{position:absolute;right:20px;top:43px;font-size:14px;font-weight:700;pointer-events:none}
+dialog[open]{animation:dialog-enter .2s ease-out}
+dialog::backdrop{background:#030710bc}
+@keyframes dialog-enter{from{opacity:0;transform:translateY(8px) scale(.99)}to{opacity:1;transform:none}}
+/* Técnicas de deslocamento usam rastros, sem ampliar os ícones do catálogo. */
+.scene-shunpo .step-current{position:absolute;left:12%;top:calc(36% + var(--i)*18px);width:65%;height:2px;background:linear-gradient(90deg,transparent,#9fe9ff,white,transparent);box-shadow:0 0 12px #78cfff;animation:step-current .65s both;animation-delay:calc(var(--i)*55ms)}
+.scene-shunpo .step-current:nth-child(even){width:45%;left:30%}
+@keyframes step-current{0%{opacity:0;transform:translateX(-35%) scaleX(.15)}35%{opacity:.8}100%{opacity:0;transform:translateX(35%) scaleX(1)}}
+.clone-outline{position:absolute;top:26%;left:calc(50% - 40px);width:80px;height:150px;border:1px solid #a6eaff;border-radius:45% 45% 24% 24%;background:linear-gradient(90deg,transparent,#79cfff15,transparent);box-shadow:0 0 22px #82d9ff22;animation:echo-form 1.3s both;--offset:calc((var(--i) - .5)*150px)}
+@keyframes echo-form{0%{opacity:0;transform:scale(.8)}35%{opacity:.8}70%{opacity:.55;transform:translateX(var(--offset))}100%{opacity:0;transform:translateX(var(--offset)) translateY(-10px)}}
+.scene-clone-end .clone-outline{animation:echo-release .9s both}
+@keyframes echo-release{from{opacity:.7;filter:blur(0)}to{opacity:0;filter:blur(10px);transform:translateY(-25px) scaleX(1.3)}}
+.effects-off *{animation:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

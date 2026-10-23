@@ -40,18 +40,20 @@ export function sceneMarkup(kind,variant='fire'){
   case 'kirin':return `<div class="storm-clouds"></div><div class="kirin-sky-ring"></div><div class="kirin-beast ${variant==='channel'?'channeling':'descending'}"><img src="assets/skills/kirin.png" alt=""></div>${bolts('scene-bolts')}<div class="kirin-strike"></div><div class="impact-ring"></div><div class="particle-origin">${particles(20)}</div>`;
   case 'reaver':return `<div class="reaver-cuts">${slash('cut-one')}${slash('cut-two')}${slash('cut-three')}</div><div class="particle-origin">${particles(12)}</div>`;
   case 'spear':return '<div class="spear-charge"></div><div class="spear-beam"></div><div class="spear-tip"></div><div class="impact-ring"></div>';
-  case 'shunpo':return `<div class="shunpo-trail"></div>${[0,1,2].map(i=>`<img class="shunpo-echo" style="--i:${i}" src="assets/skills/shunpo.png" alt="">`).join('')}`;
-  case 'clone':return `<div class="clone-formation">${[0,1].map(i=>`<img style="--i:${i}" src="assets/skills/clone.png" alt="">`).join('')}</div><div class="clone-ring"></div>`;
+  case 'shunpo':return Array.from({length:5},(_,i)=>`<i class="step-current" style="--i:${i}"></i>`).join('');
+  case 'clone':return [0,1].map(i=>`<div class="clone-outline" style="--i:${i}"></div>`).join('');
   case 'transmutation':return `<div class="energy-core"></div><div class="element-orbit">${['#9be9ff','#bb9aff','#ff9b5c','#72dfff','#fff1ad'].map((c,i)=>`<i style="--i:${i};--element:${c}"></i>`).join('')}</div>`;
   case 'parry':return `<div class="guard-circle"></div><div class="guard-blade blade-one"></div><div class="guard-blade blade-two"></div><div class="particle-origin">${particles(14,'metal-spark')}</div>`;
   case 'flash':return '<div class="flash-iris"></div><div class="flash-iris second"></div><div class="flash-rays"></div>';
-  case 'clone-end':return `<div class="clone-dissolve"><img src="assets/skills/clone.png" alt=""></div><div class="particle-origin">${particles(12)}</div>`;
+  case 'clone-end':return '<div class="clone-outline" style="--i:.5"></div>';
   default:return '<div class="quiet-ring"></div>';
  }
 }
 export function playScene(s,kind,label,{variant='fire',subtitle='',duration=1300}={}){
  const live=document.querySelector('#live-event');live.textContent=label;
  if(!s.runtime.visuals||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ // Vida e turnos respondem junto aos seus controles, sem cobrir a consulta.
+ if(['hurt','heal','turn'].includes(kind))return;
  if(kind==='godspeed'){pulseGodspeedEffects();return;}
  if(kind==='war'||kind==='kirin'){playCombatEffect(kind,variant);return;}
  const layer=document.querySelector('#fx-layer');layer.replaceChildren();

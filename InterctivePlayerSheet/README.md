@@ -66,3 +66,5 @@ npm test
 `character.json` preserva os valores importados do CSV original; `core.mjs` contém validação, migração e operações gerais; `battle.mjs` as regras de transformações e turnos; `store.mjs` a persistência; `combat-view.mjs` a organização do catálogo; `app.mjs` a interface; `identity.css` a base visual; `transformations.css` as paletas e cenas; `visuals.mjs` o ciclo visual e os assets; `icons.mjs` os ícones das seções. Os arquivos CSV, Excel e a referência do Vasco são mantidos.
 
 Validação: testes do núcleo, migração, derivados, turnos, efeitos, Godspeed, War Lotus, cura, perdas permanentes e desfazer. No Chromium foram verificados esses fluxos completos, migração real de IndexedDB e backups antigos, persistência após recarregar, animações desligadas, movimento reduzido e as sete seções entre 320 e 1440 pixels.
+
+Prévia das técnicas: em **Ajustes & backup → Experimentar as técnicas**, ou `http://localhost:8765/motion-preview.html`. Não consome recursos. A interface usa transições curtas, variação de HP junto à vida e feedback de turno; animações podem ser desligadas nos Ajustes e respeitam movimento reduzido.

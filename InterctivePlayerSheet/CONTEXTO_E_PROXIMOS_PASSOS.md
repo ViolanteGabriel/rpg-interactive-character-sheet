@@ -248,3 +248,14 @@ A War Lotus possui pontos de regra que foram explicitados em `COMBATE.md`: fórm
 ## 7. Primeira ação na retomada
 
 **Conferir os novos ícones em `externalAssets/`. Depois, propor uma versão minimalista do Kirin, usando Lightning Reaver como referência positiva de clareza e acabamento.** A escolha de tecnologia para partículas vem na etapa seguinte; a inclusão de sons e o refinamento das demais seções vêm depois.
+
+## Refinamento inspirado no APK do Vasco — 23/10/2026
+
+- Referência examinada: `Vasco TZPG.apk/assets/index.html`. Aproveitados feedback curto de recursos, transição da barra de vida e identificação visual de estados, preservando a paleta e o layout web do Supros.
+- `interface-motion.mjs/css`: entrada curta entre seções, abertura de detalhes/diálogos, foco e resposta dos controles, destaque de alterações de HP/CA/acerto e do relógio de turno. Valores finais aparecem imediatamente; animações não executam regras.
+- Vida com transição de largura, cores por faixa (até 50% / até 25%) e variação temporária de HP junto ao painel. Removidas sobreposições centrais de dano, cura e turno para manter os números consultáveis.
+- Shunpo usa rastros sequenciais; Clone usa contornos que se separam e dissipam, sem ampliar ícones. Reaver e motores PixiJS existentes preservados.
+- `motion-preview.html`, acessível nos Ajustes: prévia de técnicas sem ler/gravar partida. Prévia de transformações segue em `combat-preview.html`.
+- Desligamento e movimento reduzido cancelam as novas animações; mudanças de valor permanecem imediatas. Sem alterações de banco, regras, cargas ou origem.
+- Validação: cinco arquivos de testes passaram; Chromium com perfil isolado verificou dano persistido, variação de HP, navegação, cancelamento por movimento reduzido, efeitos desligados (zero animações), larguras 1440/390 px e ausência de exceções. Capturas visuais conferidas. Aprovação estética final ainda depende do jogador.
+- APK extraído permanece fora dos commits. Nenhum push solicitado nesta rodada.
