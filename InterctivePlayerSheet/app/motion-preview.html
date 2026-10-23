@@ -1,7 +1,54 @@
-<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#070c17"><title>Supros · prévia das técnicas</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="identity.css"><link rel="stylesheet" href="transformations.css?v=20261023-storm2"><link rel="stylesheet" href="interface-motion.css?v=vasco1"><body data-form="base"><main style="max-width:960px;margin:auto;padding:32px"><div class="eyebrow">SUPROS · ESTUDO DE MOVIMENTO</div><h1>Técnicas em movimento</h1><p class="muted">Experimente as cenas sem consumir cargas ou alterar sua partida. Movimento reduzido do sistema é respeitado.</p><section class="panel"><div class="toolbar" id="techniques"></div></section><p><a href="combat-preview.html">War Lotus, Kirin & Godspeed →</a></p><p><a href="/">Voltar à ficha →</a></p><div id="fx-layer" aria-hidden="true"></div><div id="live-event" role="status" class="sr"></div></main><script type="module">
-import {playScene,SKILL_VISUALS} from './visuals.mjs?v=20261023-vasco1';
-const state={runtime:{visuals:true}};
-const names={reaver:'Lightning Reaver',spear:'Lightning Spear',shunpo:'Shunpo',clone:'Clone',transmutation:'Energy Transmutation',parry:'Parry',flash:'Flash Bang'};
-for(const spec of Object.values(SKILL_VISUALS)){if(!names[spec.kind])continue;const button=document.createElement('button');button.textContent=names[spec.kind];button.onclick=()=>playScene(state,spec.kind,button.textContent,spec);document.querySelector('#techniques').append(button);}
-const end=document.createElement('button');end.textContent='Dissipar Clone';end.onclick=()=>playScene(state,'clone-end','Clone dissipado');document.querySelector('#techniques').append(end);
-</script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="theme-color" content="#070c17">
+ <title>Supros · prévia das técnicas</title>
+ <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="identity.css">
+ <link rel="stylesheet" href="transformations.css?v=20261023-storm2">
+ <link rel="stylesheet" href="interface-motion.css?v=vasco1">
+</head>
+<body data-form="base">
+ <main style="max-width:960px;margin:auto;padding:32px">
+  <div class="eyebrow">SUPROS · ESTUDO DE MOVIMENTO</div>
+  <h1>Técnicas em movimento</h1>
+  <p class="muted">Experimente as cenas sem consumir cargas ou alterar sua partida.</p>
+  <p>Novidades desta versão: <strong>Shunpo</strong> com rastros de velocidade, <strong>Clone</strong> com contornos que se separam e <strong>Dissipar Clone</strong> com dissolução. As demais técnicas mantêm suas cenas anteriores.</p>
+  <p id="motion-status" role="status"></p>
+  <section class="panel"><div class="toolbar" id="techniques"></div></section>
+  <p><a href="combat-preview.html">War Lotus, Kirin & Godspeed →</a></p>
+  <p><a href="/">Voltar à ficha →</a></p>
+  <div id="fx-layer" aria-hidden="true"></div>
+  <div id="live-event" role="status" class="sr"></div>
+ </main>
+ <script type="module">
+  import {playScene,SKILL_VISUALS} from './visuals.mjs?v=20261023-vasco1';
+  const state={runtime:{visuals:true}};
+  const names={shunpo:'Shunpo',clone:'Clone',reaver:'Lightning Reaver',spear:'Lightning Spear',transmutation:'Energy Transmutation',parry:'Parry',flash:'Flash Bang'};
+  for(const [kind,name] of Object.entries(names)){
+   const spec=Object.values(SKILL_VISUALS).find(spec=>spec.kind===kind);
+   const button=document.createElement('button');
+   button.textContent=name;
+   button.onclick=()=>playScene(state,kind,name,spec);
+   document.querySelector('#techniques').append(button);
+  }
+  const end=document.createElement('button');
+  end.textContent='Dissipar Clone';
+  end.onclick=()=>playScene(state,'clone-end','Clone dissipado');
+  document.querySelector('#techniques').append(end);
+
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  function updateMotionStatus(){
+   document.querySelector('#motion-status').textContent=reduced.matches
+    ? 'Animações pausadas: seu sistema ou navegador está solicitando movimento reduzido. Para experimentar as cenas, desative essa preferência nas configurações de acessibilidade.'
+    : 'Animações disponíveis. Escolha uma técnica para assistir.';
+   for(const button of document.querySelectorAll('#techniques button'))button.disabled=reduced.matches;
+   if(reduced.matches)document.querySelector('#fx-layer').replaceChildren();
+  }
+  reduced.addEventListener('change',updateMotionStatus);
+  updateMotionStatus();
+ </script>
+</body>
+</html>
