@@ -19,7 +19,7 @@ A versão atual foi construída para **Kozuki D Supros**, personagem de uma camp
 | Combate | Vida, CA, acerto, dano das armas e controle do turno individual em uma tela. |
 | Habilidades | Catálogo com regras, usos, recargas, consulta e edição. |
 | Categorias visuais | Ações em azul, ações bônus em verde, reações em laranja, passivas em dourado e ações livres em branco. |
-| Transformações | Godspeed e War Lotus atualizam os derivados implementados, a paleta e os efeitos visuais. |
+| Transformações | Godspeed e War Lotus atualizam os derivados implementados, a paleta e os fluxos contínuos de energia. |
 | Estado | Exaustão, efeitos recebidos, modificadores temporários e lembretes. |
 | Ficha e inventário | Atributos, salvaguardas, perícias, equipamentos e quantidades. |
 | Notas e histórico | Diário da campanha, registro de operações e opção de desfazer. |
@@ -125,11 +125,13 @@ Para detalhes mecânicos e duração dos efeitos, consulte [o guia de combate](I
 Com o servidor ligado, abra as prévias independentes:
 
 - **[Godspeed](http://localhost:8765/godspeed-preview.html)** — ativação, impulso e fluxo de partículas.
-- **[War Lotus e Kirin](http://localhost:8765/combat-preview.html)** — descargas negras, canalização e disparo.
+- **[Godspeed, War Lotus e Kirin](http://localhost:8765/combat-preview.html)** — correntes elétricas, energia negra, canalização e disparo em etapas.
 
 Essas páginas não leem nem gravam a partida. Também estão acessíveis por **Ajustes & backup**.
 
 As animações respeitam a preferência de movimento reduzido do sistema. Você também pode desligá-las em **Ajustes & backup → Efeitos visuais**.
+
+As correntes acompanham o banner e as margens da ficha, com intensidade menor durante a cena do Kirin. Navegar, abrir detalhes ou desfazer encerra a cena em curso; retornar à aba restaura os ambientes ativos sem repetir a ativação.
 
 ## Levar sua partida para outro dispositivo
 

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Godspeed · Prévia de efeitos</title>
-<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="identity.css"><link rel="stylesheet" href="transformations.css?v=20261023-storm2">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="identity.css"><link rel="stylesheet" href="transformations.css?v=20261023-flow2"><link rel="stylesheet" href="interface-motion.css?v=flow2">
 <style>
 body{min-height:100vh;background:radial-gradient(ellipse at 75% 25%,#102c4633,transparent 65%),#070c17}main{max-width:1150px;padding:60px 32px}header{margin-bottom:30px}h1{margin:12px 0;font-family:Georgia,serif;font-size:40px;font-weight:400}.preview-intro{max-width:570px;line-height:1.7;color:#a9b8ca}.preview-controls{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 50px}.preview-controls button{padding:12px 18px}.preview-controls button[aria-pressed=true]{border-color:#8cceff;color:#d0f3ff;background:#1b3e5c}.preview-stage{padding:70px 0 80px}.preview-stage .character-banner{min-height:190px}.preview-stage .character-banner h2{font-size:28px}.preview-caption{display:flex;justify-content:space-between;gap:12px;margin:26px 0;color:#8da7bf;font-size:12px}.preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.preview-grid .panel{padding:24px}.preview-grid strong{font-size:24px;color:#c2eaff}.preview-grid h3{font-size:13px;color:#8ba6c2;margin-bottom:18px}.preview-grid p{margin-bottom:0}.preview-note{color:#7e94a9;font-size:12px;line-height:1.7;max-width:600px}a{color:#9bcfff}.preview-status{color:#91bca4;font-size:12px}@media(max-width:700px){main{padding:30px 20px}.preview-grid{grid-template-columns:1fr}.preview-controls{margin-bottom:15px}h1{font-size:32px}.preview-stage{padding-top:40px}}
 </style></head><body data-form="base"><main>
@@ -10,14 +10,14 @@ body{min-height:100vh;background:radial-gradient(ellipse at 75% 25%,#102c4633,tr
 <div class="preview-grid"><section class="panel"><h3>REFLEXOS DESPERTOS</h3><strong>Além do alcance dos olhos.</strong><p>O movimento acompanha a transformação, sem cobrir os controles.</p></section><section class="panel"><h3>PRESENÇA CONTÍNUA</h3><strong>Uma tempestade contida.</strong><p>O impulso inicial se dissolve em correntes suaves e partículas dispersas.</p></section></div></div>
 <p class="preview-note">Esta prévia não usa os dados da partida e não consome cargas. A preferência de movimento reduzido do sistema é respeitada.</p><p class="preview-status" id="status" role="status">Carregando…</p>
 </main><script type="module">
-import {syncGodspeedEffects,pulseGodspeedEffects} from './godspeed-fx.mjs?v=storm2';
+import {syncGodspeedEffects,pulseGodspeedEffects} from './godspeed-fx.mjs?v=flow2';
 const state={runtime:{visuals:true,godspeed:{active:false},war:{active:false}}};
 const toggle=document.querySelector('#toggle'),effects=document.querySelector('#effects');
 function sync(){document.body.dataset.form=state.runtime.godspeed.active?'godspeed':'base';document.body.classList.toggle('speed-active',state.runtime.godspeed.active);document.body.classList.toggle('effects-off',!state.runtime.visuals);toggle.setAttribute('aria-pressed',state.runtime.godspeed.active);toggle.textContent=state.runtime.godspeed.active?'Desativar Godspeed':'Ativar Godspeed';effects.setAttribute('aria-pressed',state.runtime.visuals);effects.textContent=state.runtime.visuals?'Efeitos ligados':'Efeitos desligados';document.querySelector('#mode').textContent=state.runtime.godspeed.active?'Godspeed ativo.':'Chaos contido.';syncGodspeedEffects(state);}
 toggle.onclick=()=>{state.runtime.godspeed.active=!state.runtime.godspeed.active;sync();if(state.runtime.godspeed.active)pulseGodspeedEffects();};
-effects.onclick=()=>{state.runtime.visuals=!state.runtime.visuals;sync();};
+effects.onclick=()=>{state.runtime.visuals=!state.runtime.visuals;sync();report();};
 document.querySelector('#pulse').onclick=()=>{state.runtime.godspeed.active=true;sync();pulseGodspeedEffects();};
-const status=document.querySelector('#status');function report(){status.textContent=matchMedia('(prefers-reduced-motion: reduce)').matches?'Movimento reduzido ativo.':document.body.dataset.godspeedFx==='ready'?'Prévia pronta.':document.body.dataset.godspeedFx==='unavailable'?'Efeito indisponível neste navegador.':'Preparando efeito…';}
+const status=document.querySelector('#status');function report(){status.textContent=matchMedia('(prefers-reduced-motion: reduce)').matches?'Movimento reduzido ativo.':!state.runtime.visuals?'Efeitos desligados. Use o botão acima para ativar.':document.body.dataset.godspeedFx==='ready'?'Prévia pronta.':document.body.dataset.godspeedFx==='unavailable'?'Efeito indisponível neste navegador.':'Preparando efeito…';}
 new MutationObserver(report).observe(document.body,{attributes:true,attributeFilter:['data-godspeed-fx']});matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',report);
 state.runtime.godspeed.active=true;sync();report();
 </script></body></html>

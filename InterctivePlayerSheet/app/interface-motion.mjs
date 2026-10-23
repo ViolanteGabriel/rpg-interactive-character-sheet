@@ -3,7 +3,7 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const running = new Set();
 let previous;
 export function motionAllowed() {
- return !reduced.matches && !document.body.classList.contains('effects-off');
+ return !document.hidden && !reduced.matches && !document.body.classList.contains('effects-off');
 }
 function animate(element, frames, options) {
  if (!element || !motionAllowed()) return;
@@ -14,9 +14,12 @@ function animate(element, frames, options) {
 function stopMotion() {
  for (const animation of running) animation.cancel();
  running.clear();
+ document.querySelectorAll('.resource-delta').forEach(delta=>delta.remove());
  document.querySelector('#fx-layer')?.replaceChildren();
 }
 reduced.addEventListener('change', () => { if (reduced.matches) stopMotion(); });
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopMotion();});
+addEventListener('pagehide',stopMotion);
 export function syncInterfaceMotion(state, tab, totals) {
  const next = {tab, hp:state.character.hp, ac:totals.ac, attack:totals.attack,
   turn:`${state.combat.active}/${state.combat.turn}/${state.combat.phase}`};

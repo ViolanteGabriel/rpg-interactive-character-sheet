@@ -1,6 +1,6 @@
 # Supros — contexto e roteiro de retomada
 
-Atualizado em **22/10/2026**, para retomar em **23/10/2026**.
+Atualizado em **23/10/2026**. A revisão mais recente está em “Correntes contínuas e ciclo das cenas”, ao final deste documento.
 
 Este documento reúne o estado atual e o feedback mais recente do jogador. A ordem de trabalho abaixo prevalece sobre as etapas e sugestões históricas do plano original. A solicitação desta rodada foi documentar a continuidade; os refinamentos listados ainda não foram implementados.
 
@@ -259,3 +259,20 @@ A War Lotus possui pontos de regra que foram explicitados em `COMBATE.md`: fórm
 - Desligamento e movimento reduzido cancelam as novas animações; mudanças de valor permanecem imediatas. Sem alterações de banco, regras, cargas ou origem.
 - Validação: cinco arquivos de testes passaram; Chromium com perfil isolado verificou dano persistido, variação de HP, navegação, cancelamento por movimento reduzido, efeitos desligados (zero animações), larguras 1440/390 px e ausência de exceções. Capturas visuais conferidas. Aprovação estética final ainda depende do jogador.
 - APK extraído permanece fora dos commits. Nenhum push solicitado nesta rodada.
+
+## Correntes contínuas e ciclo das cenas — 23/10/2026
+
+Retomadas e concluídas as alterações locais que estavam em andamento nos motores Godspeed/War Lotus/Kirin.
+
+- `energy-flow.mjs`: caminhos determinísticos com deformação contínua em três escalas, interpolação pela distância percorrida e medição compartilhada entre pulsos/partículas. Testes cobrem continuidade, extremos presos, recortes, vértices repetidos e trajetórias vazias.
+- Godspeed: 48 partículas (32 em telas estreitas), correntes branco-azuladas nas margens e ao redor do retrato. Rastros calculados pela distância, sem histórico de posições que risque a tela ao rolar ou redimensionar. Ramificações concentradas na metade do retrato, preservando o texto do banner.
+- War Lotus: correntes negras contínuas, contorno cinza discreto, deriva escura e impulso ao empunhar/alimentar. A apresentação continua prioritária quando Godspeed também está ativo.
+- Kirin: canalização de 2,2 s; disparo de 3,2 s com preparação, descida, descarga ramificada e dissipação. Reduzidos os filamentos simultâneos; o vórtice enfraquece durante a descida e os ambientes de Godspeed/Guerra cedem intensidade à cena. Sprite existente preservado.
+- Uma cena transitória por vez entre CSS e Pixi. Navegação, detalhes e desfazer cancelam o efeito corrente; aba oculta, movimento reduzido e efeitos desligados também interrompem o ciclo. Retomar restaura somente os ambientes, sem repetição de impulso/descarga.
+- Desligamento inclui transições de pseudoelementos, como o brilho das transformações. A camada de contraste do banner agora fica acima da imagem do Godspeed, melhorando a leitura em telas pequenas.
+- Prévias e imports atualizados para `flow2`, sem CDN ou dependência npm. A prévia conjunta permanece em `combat-preview.html`, com os controles e o estado dos efeitos visíveis.
+- `npm run test:browser`: verificação reproduzível por CDP em Chromium real, servidor local e perfil temporário exclusivos. Exercita a partida pelos controles, verifica persistência/cargas e captura as etapas visuais opcionalmente; não acessa o perfil do jogador.
+- Validação concluída: os seis arquivos de testes passaram; o teste de navegador passou em 320/390/1440 px, incluindo troca real de aba, pausa/retomada, desfazer, diálogos, persistência e consumo único do Kirin. Capturas de desktop, celular, descida e impacto foram conferidas. Nenhuma exceção ou requisição externa foi detectada nesse roteiro.
+- Banco, regras, recursos e origem habitual preservados. Sons permanecem pendentes da escolha das habilidades e dos assets. Aprovação estética final cabe ao jogador.
+
+Próxima revisão: experimentar as correntes e as etapas do Kirin em uma sessão real; ajustar intensidade/ritmo a partir do feedback. A referência do APK continua fora do commit. Nenhum push foi solicitado.

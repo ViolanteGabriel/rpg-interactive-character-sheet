@@ -1,10 +1,10 @@
-import {syncCombatEffects,playCombatEffect} from './combat-fx.mjs?v=storm2';
-import {syncGodspeedEffects,pulseGodspeedEffects} from './godspeed-fx.mjs?v=storm2';
+import {syncCombatEffects,playCombatEffect,cancelCombatEffect} from './combat-fx.mjs?v=flow2';
+import {syncGodspeedEffects,pulseGodspeedEffects,cancelGodspeedPulse} from './godspeed-fx.mjs?v=flow2';
 import {icon} from './icons.mjs';
 export const SKILL_VISUALS={
  'skill-54':{kind:'reaver',asset:'reaver',subtitle:'TRÊS CORTES · UMA TEMPESTADE',duration:1400},
  'skill-55':{kind:'spear',asset:'spear',subtitle:'ENERGIA EM UM ÚNICO PONTO',duration:1400},
- 'skill-56':{kind:'kirin',asset:'kirin',subtitle:'O CÉU RESPONDE',duration:2600},
+ 'skill-56':{kind:'kirin',asset:'kirin',subtitle:'O CÉU RESPONDE',duration:3200},
  'skill-57':{kind:'transmutation',asset:'transmutation',subtitle:'A ENERGIA MUDA DE FORMA',duration:1600},
  'skill-60':{kind:'shunpo',asset:'shunpo',subtitle:'ALÉM DO ALCANCE DOS OLHOS',duration:1000},
  'skill-61':{kind:'godspeed',asset:'godspeed',subtitle:'LIMITES DO CORPO · ROMPIDOS',duration:2800},
@@ -49,22 +49,36 @@ export function sceneMarkup(kind,variant='fire'){
   default:return '<div class="quiet-ring"></div>';
  }
 }
+let sceneTimer;
+export function cancelScene(){
+ clearTimeout(sceneTimer);
+ document.querySelector('#fx-layer')?.replaceChildren();
+ document.querySelectorAll('.just-activated').forEach(card=>card.classList.remove('just-activated'));
+ cancelCombatEffect();cancelGodspeedPulse();
+}
 export function playScene(s,kind,label,{variant='fire',subtitle='',duration=1300}={}){
- const live=document.querySelector('#live-event');live.textContent=label;
- if(!s.runtime.visuals||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ const live=document.querySelector('#live-event');if(live)live.textContent=label;
+ if(!s.runtime.visuals||matchMedia('(prefers-reduced-motion: reduce)').matches||document.hidden){cancelScene();return;}
  // Vida e turnos respondem junto aos seus controles, sem cobrir a consulta.
  if(['hurt','heal','turn'].includes(kind))return;
+ // Só uma técnica transitória por vez, inclusive entre cenas CSS e Pixi.
+ cancelScene();
  if(kind==='godspeed'){pulseGodspeedEffects();return;}
  if(kind==='war'||kind==='kirin'){playCombatEffect(kind,variant);return;}
  const layer=document.querySelector('#fx-layer');layer.replaceChildren();
  const scene=document.createElement('div');scene.className=`ability-scene scene-${kind}`;scene.dataset.variant=variant;
  scene.style.setProperty('--duration',`${duration}ms`);scene.innerHTML=sceneMarkup(kind,variant);
  const caption=document.createElement('div');caption.className='scene-caption';const small=document.createElement('span');small.textContent=subtitle;const title=document.createElement('strong');title.textContent=label;caption.append(small,title);scene.append(caption);layer.append(scene);
- setTimeout(()=>scene.remove(),duration+100);
+ sceneTimer=setTimeout(()=>scene.remove(),duration+100);
 }
 export function playSkill(s,id,label,variant='fire'){
  const spec=SKILL_VISUALS[id]||{kind:'pulse',duration:1100,subtitle:''};
  playScene(s,spec.kind,label,{...spec,variant,subtitle:id==='skill-56'&&variant==='channel'?'CANALIZAÇÃO · O CÉU COMEÇA A RUGIR':spec.subtitle});
  const card=[...document.querySelectorAll('.combat-skill')].find(c=>c.querySelector('[data-id]')?.dataset.id===id);
- if(card&&s.runtime.visuals&&!matchMedia('(prefers-reduced-motion: reduce)').matches){card.classList.add('just-activated');setTimeout(()=>card.classList.remove('just-activated'),700);}
+ if(card&&s.runtime.visuals&&!document.hidden&&!matchMedia('(prefers-reduced-motion: reduce)').matches){card.classList.add('just-activated');setTimeout(()=>card.classList.remove('just-activated'),700);}
+}
+if(typeof document!=='undefined'){
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelScene();});
+ addEventListener('pagehide',cancelScene);
+ matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',event=>{if(event.matches)cancelScene();});
 }

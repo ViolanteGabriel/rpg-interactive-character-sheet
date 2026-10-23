@@ -21,5 +21,5 @@ dialog::backdrop{background:#030710bc}
 @keyframes echo-form{0%{opacity:0;transform:scale(.8)}35%{opacity:.8}70%{opacity:.55;transform:translateX(var(--offset))}100%{opacity:0;transform:translateX(var(--offset)) translateY(-10px)}}
 .scene-clone-end .clone-outline{animation:echo-release .9s both}
 @keyframes echo-release{from{opacity:.7;filter:blur(0)}to{opacity:0;filter:blur(10px);transform:translateY(-25px) scaleX(1.3)}}
-.effects-off *{animation:none!important;transition:none!important}
+.effects-off,.effects-off::before,.effects-off::after,.effects-off *,.effects-off *::before,.effects-off *::after{animation:none!important;transition:none!important}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

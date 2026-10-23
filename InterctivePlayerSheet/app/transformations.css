@@ -20,7 +20,7 @@ body[data-form=war]::after{box-shadow:inset 0 0 140px #9b10395c}body[data-form=w
 @media(prefers-reduced-motion:reduce){.ability-scene,.banner-lightning,.banner-shell::after{display:none!important}.turn-dock,.skill-icon{transition:none!important}.just-activated{animation:none!important}}
 /* O retrato nasce da energia do banner, sem uma emenda retangular na arte. */
 body[data-form=godspeed] .character-banner{background-image:linear-gradient(110deg,#091b30,#102e4d);background-size:cover;background-position:center}
-.speed-active .character-banner::after{content:'';position:absolute;inset:0 0 0 auto;width:54%;z-index:-1;pointer-events:none;background:url('assets/supros-godspeed.png') 50% 46% / cover no-repeat;mask-image:linear-gradient(90deg,transparent,#000 28%,#000 80%,transparent)}
+.speed-active .character-banner::after{content:'';position:absolute;inset:0 0 0 auto;width:54%;z-index:-2;pointer-events:none;background:url('assets/supros-godspeed.png') 50% 46% / cover no-repeat;mask-image:linear-gradient(90deg,transparent,#000 28%,#000 80%,transparent)}
 body[data-form=war].speed-active .character-banner{background-image:linear-gradient(110deg,#210611,#420c25);background-size:cover;background-position:center}
 body[data-form=war].speed-active .character-banner::after{filter:hue-rotate(135deg) saturate(1.2)}
 body[data-form=war] nav button:not(.active){background:transparent;border-color:transparent}

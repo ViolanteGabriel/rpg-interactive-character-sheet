@@ -50,6 +50,10 @@ As regras e a operação detalhada estão em [COMBATE.md](COMBATE.md).
 - Estado permite registrar exaustão, condições e modificadores temporários com duração.
 - Retrato, transformação Godspeed e ícones das técnicas estão integrados. Cada técnica tem uma cena própria; Godspeed e War Lotus mudam retratos/paleta/energia em toda a ficha. Godspeed usa partículas PixiJS com descargas claras; War Lotus usa raios negros; Kirin separa canalização e descida da fera elétrica. Animações e raios persistentes podem ser desligados.
 
+Godspeed e War Lotus agora usam correntes que se deformam continuamente, com pulsos percorrendo o banner e as margens da ficha. Os rastros mantêm o comprimento quando a taxa de quadros varia. Kirin reúne a energia, apresenta a fera, acelera sua descida e termina em descarga e dissipação; a energia ambiente perde intensidade durante a cena. A canalização dura 2,2 s e o disparo 3,2 s.
+
+Trocar de seção, abrir detalhes ou desfazer cancela a cena em curso. Ocultar a aba, desligar efeitos ou ativar movimento reduzido interrompe as animações; ao voltar, somente os ambientes das transformações ainda ativas são retomados. As cenas não capturam cliques nem avançam turnos.
+
 A War Lotus não possui bônus próprio de CA na regra fornecida; o padrão é zero. Godspeed modifica a CA por DEX. O dano base da espada segue inicialmente a descrição detalhada `1d12 + DEX`, com a fórmula divergente do inventário preservada e possibilidade de escolher a fórmula em Ajustes. A recuperação de sacrifícios temporários exige decisão explícita da mesa. Exaustão e condições não importam automaticamente regras de D&D.
 
 Energy Transmutation e o upgrade do Clone estão aprovados. Transmutation começa com quatro usos por descanso curto conforme a tabela; esse valor continua editável.
@@ -63,8 +67,20 @@ cd InterctivePlayerSheet/app
 npm test
 ```
 
+Para verificar também os efeitos em um Chromium instalado, com Node 22 ou superior:
+
+```bash
+npm run test:browser
+# Opcional: salvar as capturas da verificação
+npm run test:browser -- --screenshots /tmp/supros-motion-checks
+```
+
+O teste cria seu próprio servidor e perfil temporário, sem acessar a partida do jogador. Verifica cargas, persistência, alternância de formas, interrupção das cenas, movimento reduzido, larguras de 320/390/1440 px e recursos locais. `CHROMIUM_PATH` permite indicar o executável do navegador. O perfil temporário é removido ao finalizar; as capturas solicitadas são preservadas.
+
 `character.json` preserva os valores importados do CSV original; `core.mjs` contém validação, migração e operações gerais; `battle.mjs` as regras de transformações e turnos; `store.mjs` a persistência; `combat-view.mjs` a organização do catálogo; `app.mjs` a interface; `identity.css` a base visual; `transformations.css` as paletas e cenas; `visuals.mjs` o ciclo visual e os assets; `icons.mjs` os ícones das seções. Os arquivos CSV, Excel e a referência do Vasco são mantidos.
 
 Validação: testes do núcleo, migração, derivados, turnos, efeitos, Godspeed, War Lotus, cura, perdas permanentes e desfazer. No Chromium foram verificados esses fluxos completos, migração real de IndexedDB e backups antigos, persistência após recarregar, animações desligadas, movimento reduzido e as sete seções entre 320 e 1440 pixels.
 
 Prévia das técnicas: em **Ajustes & backup → Experimentar as técnicas**, ou `http://localhost:8765/motion-preview.html`. Não consome recursos. A interface usa transições curtas, variação de HP junto à vida e feedback de turno; animações podem ser desligadas nos Ajustes e respeitam movimento reduzido.
+
+Prévia das correntes e da tempestade: **[Godspeed, War Lotus e Kirin](http://localhost:8765/combat-preview.html)**. `energy-flow.mjs` compartilha a geometria contínua entre os motores; `fx-geometry.mjs` define os tempos do Kirin.
